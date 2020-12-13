@@ -1,0 +1,272 @@
+.directions-card {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  padding: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.cities-absolute-card {
+  position: absolute;
+  right: -200px;
+  width: 200px;
+  top: 200px;
+  background-color: var(--maroon);
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.8);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: right 0.3s ease-in-out;
+}
+
+.cities-absolute-card:hover {
+  right: 0;
+}
+
+.cities-absolute-card .cities-sign {
+  position: absolute;
+  width: 200px;
+  left: -200px;
+  top: 0;
+  background-color: var(--maroon);
+  padding: 0.5rem;
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.cities-absolute-card .city {
+  margin-bottom: 1rem;
+}
+
+.directions-card .card-left-content {
+  max-width: 30%;
+  padding: 0.5rem;
+}
+
+.directions-card .card-right-content .links {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.directions-card .card-right-content .links ul {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.directions-card .card-right-content .links li {
+  margin-right: 2rem;
+  list-style: circle;
+}
+
+.directions-card .card-right-content .links li a {
+  color: #274996;
+  font-weight: bold;
+}
+
+.directions-card .card-right-content {
+  max-width: 70%;
+  padding: 0.5rem;
+}
+
+.directions-card .card-right-content table {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  border-radius: 5px;
+}
+
+.directions-card .card-right-content table th {
+  padding: 0.5rem;
+  border-right: 3px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.directions-card .card-right-content table td {
+  padding: 0.5rem;
+  border-right: 3px solid #fff;
+  text-align: center;
+}
+
+.directions-card .card-right-content table td:last-of-type {
+  border-right: none;
+}
+
+.directions-card .card-right-content table th:last-of-type {
+  max-width: 150px;
+  border-right: none;
+}
+
+.directions-card h1 {
+  font-family: 'Ranchers', sans-serif;
+}
+
+.directions-card:nth-of-type(1) {
+  background: var(--dark-overlay),
+    url(../resources/images/Poland.jpg) center bottom / cover no-repeat;
+}
+
+.directions-card:nth-of-type(2) {
+  background: var(--dark-overlay),
+    url(../resources/images/Israel.jpg) center bottom / cover no-repeat;
+}
+
+.directions-card:nth-of-type(3) {
+  background: var(--dark-overlay),
+    url(../resources/images/Georgia.jpg) center bottom / cover no-repeat;
+}
+
+.gallery {
+  margin: 4rem 0;
+  padding: 0 10px;
+}
+
+.gallery h1 {
+  font-family: 'Ranchers', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  padding-left: 5rem;
+  color: var(--logo-red);
+  text-shadow: 1px 1px var(--logo-red-dark), 2px 2px var(--logo-red-dark),
+    3px 3px var(--logo-red-dark), 4px 4px var(--logo-red-dark);
+}
+
+.gallery .line {
+  background-color: var(--logo-red);
+  box-shadow: 1px 1px var(--logo-red-dark), 2px 2px var(--logo-red-dark),
+    3px 3px var(--logo-red-dark), 4px 4px var(--logo-red-dark);
+  height: 10px;
+}
+
+.gallery .line.divider-top {
+  width: 500px;
+  margin: 0.5rem 0 1rem 2rem;
+}
+
+.gallery .line.divider-bottom {
+  width: 100%;
+}
+
+.gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 450px 300px 250px 350px;
+  grid-template-areas:
+    'img1 img1 img2'
+    'img3 img4 img5'
+    'img6 img7 img7'
+    'img8 img8 img8';
+  gap: 15px;
+  padding: 15px;
+}
+
+.gallery .gallery-grid a {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gallery .gallery-grid a:nth-of-type(1) {
+  grid-area: img1;
+  background-image: url('../resources/images/gallery1.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(2) {
+  grid-area: img2;
+  background-image: url('../resources/images/gallery2.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(3) {
+  grid-area: img3;
+  background-image: url('../resources/images/gallery3.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(4) {
+  grid-area: img4;
+  background-image: url('../resources/images/gallery4.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(5) {
+  grid-area: img5;
+  background-image: url('../resources/images/gallery5.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(6) {
+  grid-area: img6;
+  background-image: url('../resources/images/gallery6.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(7) {
+  grid-area: img7;
+  background-image: url('../resources/images/gallery7.jpg');
+}
+.gallery .gallery-grid a:nth-of-type(8) {
+  grid-area: img8;
+  background-image: url('../resources/images/gallery8.jpg');
+}
+
+@media (max-width: 1100px) {
+  .directions-card {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .directions-card .card-left-content,
+  .directions-card .card-right-content {
+    max-width: 100%;
+  }
+
+  .directions-card .cities-absolute-card {
+    top: 120px;
+  }
+}
+
+@media (max-width: 810px) {
+  .directions-card .cities-absolute-card {
+    display: none;
+  }
+
+  .gallery .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 450px 300px 250px 350px 320px;
+    grid-template-areas:
+      'img1 img1'
+      'img2 img3'
+      'img4 img4'
+      'img5 img6'
+      'img7 img8';
+  }
+}
+
+@media (max-width: 700px) {
+  .directions-card table {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 450px 300px 250px 350px 320px 250px 180px 400px;
+    grid-template-areas:
+      'img1'
+      'img2'
+      'img3'
+      'img4'
+      'img5'
+      'img6'
+      'img7'
+      'img8';
+  }
+}
+
+@media (max-width: 520px) {
+  .directions-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .directions-card p {
+    font-size: 0.8rem;
+  }
+
+  .directions-card .card-right-content ul {
+    flex-wrap: wrap;
+  }
+}
