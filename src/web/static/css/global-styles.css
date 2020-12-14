@@ -104,10 +104,44 @@ textarea {
   display: flex;
 }
 
-.navigation nav a {
+.navigation nav a,
+.navigation nav div#userMenu {
   display: flex;
   align-items: center;
   margin-right: 1rem;
+  cursor: pointer;
+}
+
+.navigation nav div#userMenu {
+  position: relative;
+}
+
+.navigation nav div#userMenu div#userMenuOptions {
+  position: absolute;
+  bottom: -70px;
+  right: 0;
+  padding: 10px;
+  background-color: var(--light-maroon);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  transition: opacity 2s ease-in-out;
+}
+
+.navigation nav div#userMenu div#userMenuOptions.visible {
+  display: block;
+}
+
+.navigation nav div#userMenu div#userMenuOptions.not-visible {
+  display: none;
+}
+
+.navigation nav div#userMenu div#userMenuOptions a {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.navigation nav div#userMenu div#userMenuOptions img {
+  max-width: 40px;
 }
 
 .navigation nav img {
@@ -258,19 +292,24 @@ textarea {
     padding-top: 5px;
   }
 
-  .navigation nav a {
+  .navigation nav a,
+  .navigation nav div#userMenu {
     margin-right: 0.5rem;
   }
 
-  .navigation nav a:last-child {
+  .navigation nav div#userMenu {
     margin-right: 0px;
   }
 
-  .navigation nav a img {
+  .navigation nav img {
     max-width: 45px;
   }
 
-  .navigation nav a .nav-divider {
+  .navigation nav div#userMenu img {
+    max-width: 55px;
+  }
+
+  .navigation nav .nav-divider {
     margin-left: 0.5rem;
   }
 
@@ -297,6 +336,26 @@ textarea {
 }
 
 @media (max-width: 810px) {
+  .navigation .page-title h1 {
+    font-size: 1.2rem;
+  }
+
+  .navigation .page-logo {
+    max-width: 40px;
+  }
+
+  .navigation nav a {
+    font-size: 1rem;
+  }
+
+  .navigation nav img {
+    max-width: 35px;
+  }
+
+  .navigation nav div#userMenu img {
+    max-width: 45px;
+  }
+
   .space {
     height: 550px;
     width: 400px;
@@ -328,25 +387,15 @@ textarea {
   }
 }
 
-@media (max-width: 520px) {
-  .navigation .page-title h1 {
-    font-size: 1.2rem;
-  }
-
-  .navigation .page-logo {
-    max-width: 40px;
-  }
-
-  .navigation nav a {
-    font-size: 1rem;
-  }
-
-  .navigation nav a img {
-    max-width: 35px;
-  }
-}
-
 @media (max-width: 450px) {
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation nav {
+    justify-content: center;
+  }
+
   .space {
     height: 550px;
     width: 320px;
@@ -366,15 +415,5 @@ textarea {
 
   .space .notebook-right {
     height: 550px;
-  }
-}
-
-@media (max-width: 390px) {
-  .navigation {
-    flex-direction: column;
-  }
-
-  .navigation nav {
-    justify-content: center;
   }
 }

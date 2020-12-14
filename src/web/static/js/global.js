@@ -1,5 +1,7 @@
 const navigation = document.getElementById('navigation');
 const navigationNav = document.getElementById('navigationNav');
+const userMenuBtn = document.getElementById('userMenu');
+const userMenuOptions = document.getElementById('userMenuOptions');
 const notebook = document.getElementById('notebook');
 const notebookList = document.getElementById('notebookList');
 const notebookForm = document.getElementById('notebookForm');
@@ -38,6 +40,8 @@ window.addEventListener('scroll', () => {
         notebook.style.transform = "rotateY(-50deg) rotateX(80deg)"
     }
 })  
+
+userMenuBtn.addEventListener('click', toggleUserMenuOptionsVisibility);
 
 if(notebookForm) {
     notebookForm.addEventListener('submit', (e) => {
@@ -105,4 +109,12 @@ function removeNote(noteToDelete, textFromNote) {
     let notes = loadNotes();
     notes = notes.filter(note => note !== textFromNote);
     sessionStorage.setItem("notes", JSON.stringify(notes))
+}
+
+function toggleUserMenuOptionsVisibility() {
+    // console.log(userMenuOptions.classList);
+    if(userMenuOptions.classList.value === 'not-visible')
+        userMenuOptions.classList.value = 'visible';
+    else
+        userMenuOptions.classList.value = 'not-visible';
 }

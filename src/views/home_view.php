@@ -30,6 +30,16 @@
                     <img src="static/resources/images/navBackpack.png" alt="Plecak Ikona">
                     <div class="nav-divider"></div>
                 </a>
+                <div id="userMenu">
+                    <img src="static/resources/images/navUser.png" alt="Uzytkownik Ikona" />
+                    <div class="nav-divider"></div>
+                    <div id="userMenuOptions" class="not-visible">
+                        <a href="/rejestracja">
+                            <p>Rejestracja</p>
+                            <img src="static/resources/images/registrationIcon.png" alt="Rejestracja Ikona">
+                        </a>
+                    </div>
+                </div>
             </nav>
         </div>
 
