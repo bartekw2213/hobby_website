@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <link rel="stylesheet" href="../css/global-styles.css">
-    <link rel="stylesheet" href="../css/plecak.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Ranchers&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="static/css/global-styles.css">
+    <link rel="stylesheet" href="static/css/plecak.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Ranchers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="icon" type="image/png" href="../resources/images/siteLogo.png" />
+    <link rel="icon" type="image/png" href="static/resources/images/siteLogo.png" />
     <title>BlogoStop</title>
 </head>
+
 <body>
     <div class="container">
         <div class="navigation" id="navigation">
-            <a class="page-title" href="../index.html">
+            <a class="page-title" href="/">
                 <h1><span>Blogo</span>Stop</h1>
-                <img alt="Logo Strony" class="page-logo" src="../resources/images/siteLogo.png">
+                <img alt="Logo Strony" class="page-logo" src="static/resources/images/siteLogo.png">
             </a>
             <nav id="navigationNav">
-                <a href="./kierunki.html">
+                <a href="/kierunki">
                     <p>Kierunki</p>
-                    <img src="../resources/images/navDestinations.png" alt="Kierunki Ikona">
+                    <img src="static/resources/images/navDestinations.png" alt="Kierunki Ikona">
                     <div class="nav-divider"></div>
                 </a>
-                <a href="./plecak.html">
+                <a href="/plecak">
                     <p>Plecak</p>
-                    <img src="../resources/images/navBackpack.png" alt="Plecak Ikona">
+                    <img src="static/resources/images/navBackpack.png" alt="Plecak Ikona">
                     <div class="nav-divider"></div>
                 </a>
             </nav>
@@ -40,15 +41,15 @@
             <p>Tutaj możesz stworzyć swoją wirtualną listę rzeczy które zabierzesz na kolejny wyjazd. Do listy będziesz miał dostęp
                 za każdym razem gdy odwiedzisz stronę!
             </p>
-            <img id="leftArrow" class="arrow" src="../resources/images/backpackArrow.svg" alt="Arrow">
-            <img id="rightArrow" class="arrow" src="../resources/images/backpackArrow.svg" alt="Arrow">
+            <img id="leftArrow" class="arrow" src="static/resources/images/backpackArrow.svg" alt="Arrow">
+            <img id="rightArrow" class="arrow" src="static/resources/images/backpackArrow.svg" alt="Arrow">
         </header>
 
     </div>
 
     <div class="container no-shadow">
         <table id="backpackTable" cellspacing=0>
-            <thead>     
+            <thead>
                 <tr>
                     <th>Nazwa</th>
                     <th>Waga</th>
@@ -103,7 +104,8 @@
         <div id="dialog" title="Formularz">Dialog Tekst</div>
     </div>
 
-    <script src="../js/plecak.js"></script>
-    <script src="../js/global.js"></script>
+    <script src="static/js/plecak.js"></script>
+    <script src="static/js/global.js"></script>
 </body>
+
 </html>

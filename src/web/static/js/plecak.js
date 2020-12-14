@@ -24,8 +24,8 @@ function changeBackground(direction) {
 
     if(previousBackgroundIndex === backgroundIndex)
         return;
-
-    $('#backpackLanding').css('background-image', `url(\'../resources/images/backpackIntroduction${backgroundIndex}.jpg\')`)
+        
+    $('#backpackLanding').css('background-image', `url(\'static/resources/images/backpackIntroduction${backgroundIndex}.jpg\')`)
 }
 
 function onBackpackFormSubmition() {
@@ -102,7 +102,7 @@ function loadNotes() {
 
 function createRemoveBtn(td) {
     const removeBtnImage = document.createElement('img');
-    removeBtnImage.src = "../resources/images/backpackRemoveBtn.png"
+    removeBtnImage.src = "static/resources/images/backpackRemoveBtn.png"
     removeBtnImage.addEventListener('click', e => onRemoveBtn(e));
     td.appendChild(removeBtnImage);
 }
