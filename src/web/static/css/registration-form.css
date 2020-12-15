@@ -1,0 +1,79 @@
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 600px;
+  background: url('../resources/images/registrationBg.jpg') center / cover
+    no-repeat;
+}
+
+.registration-container form {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  background-color: var(--light-maroon);
+  padding: 25px 20px;
+  box-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 3px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 4px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 5px rgba(var(--maroon-rgb-shadow), 0.9), 0px 0px 20px rgba(0, 0, 0, 0.9);
+}
+
+.registration-container form h1 {
+  text-align: center;
+  font-family: 'Ranchers', sans-serif;
+  font-size: 3rem;
+  color: var(--light-beige);
+  letter-spacing: 2px;
+  text-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 3px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 4px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 5px rgba(var(--maroon-rgb-shadow), 0.9);
+  margin-bottom: 1rem;
+}
+
+.registration-container form label {
+  font-family: 'Ranchers', sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: var(--light-beige);
+  text-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 3px rgba(var(--maroon-rgb-shadow), 0.9);
+}
+
+.registration-container form input {
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 5px solid var(--beige);
+  padding-bottom: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: var(--beige);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  text-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9);
+}
+
+.registration-container form input[type='submit'] {
+  background-color: var(--maroon);
+  border: none;
+  padding: 0.75rem;
+  font-size: 2.5rem;
+  font-family: 'Ranchers', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 1rem;
+  border-radius: 40px;
+  color: #f5f5f5;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.4), 0px 2px rgba(0, 0, 0, 0.4),
+    0px 3px rgba(0, 0, 0, 0.4), 0px 4px rgba(0, 0, 0, 0.4),
+    0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px rgba(0, 0, 0, 0.4), 0px 2px rgba(0, 0, 0, 0.4),
+    0px 3px rgba(0, 0, 0, 0.4), 0px 4px rgba(0, 0, 0, 0.4),
+    0px 5px rgba(0, 0, 0, 0.4);
+}

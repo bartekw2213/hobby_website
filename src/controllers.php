@@ -18,3 +18,9 @@ function plecak(&$model)
 
     return 'plecak_view';
 }
+
+function wyswietl_formularz_rejestracyjny(&$model)
+{
+
+    return 'rejestracja_view';
+}
