@@ -17,24 +17,7 @@
 
 <body>
     <div class="container">
-        <div class="navigation" id="navigation">
-            <a class="page-title" href="/">
-                <h1><span>Blogo</span>Stop</h1>
-                <img alt="Logo Strony" class="page-logo" src="static/resources/images/siteLogo.png">
-            </a>
-            <nav id="navigationNav">
-                <a href="/kierunki">
-                    <p>Kierunki</p>
-                    <img src="static/resources/images/navDestinations.png" alt="Kierunki Ikona">
-                    <div class="nav-divider"></div>
-                </a>
-                <a href="/plecak">
-                    <p>Plecak</p>
-                    <img src="static/resources/images/navBackpack.png" alt="Plecak Ikona">
-                    <div class="nav-divider"></div>
-                </a>
-            </nav>
-        </div>
+        <?php include '../views/partials/navigation_view.php'; ?>
 
         <header id="backpackLanding" class="backpack-landing">
             <h1>Wirtualny plecak</h1>
