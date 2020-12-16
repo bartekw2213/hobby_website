@@ -1,26 +1,35 @@
 <?php
+require_once 'controllers_utils.php';
 
-function home(&$model)
+function show_home_view(&$model)
 {
 
     return 'home_view';
 }
 
-function kierunki(&$model)
+function show_kierunki_view(&$model)
 {
 
 
     return 'kierunki_view';
 }
 
-function plecak(&$model)
+function show_plecak_view(&$model)
 {
 
     return 'plecak_view';
 }
 
-function wyswietl_formularz_rejestracyjny(&$model)
+function show_register_form(&$model)
 {
 
     return 'rejestracja_view';
+}
+
+function register_user(&$model)
+{
+    if (!is_form_correct($model))
+        return 'rejestracja_view';
+
+    return 'redirect:/';
 }

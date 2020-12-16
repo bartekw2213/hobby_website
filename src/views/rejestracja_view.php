@@ -15,14 +15,18 @@
 <body class="no-padding">
     <div class="container ">
         <?php include '../views/partials/navigation_view.php'; ?>
+        <?php
+        if (isset($form_error))
+            include '../views/partials/form_error_view.php';
+        ?>
 
         <div class="registration-container">
-            <form action="register_user" method="post">
+            <form action="rejestruj_uzytkownika" method="post">
                 <h1>Rejestracja</h1>
                 <label for="email">Twój email:</label>
                 <input type="email" name="email">
                 <label for="email">Nazwa użytkownika:</label>
-                <input type="text" name="login">
+                <input type="text" name="username">
                 <label for="email">Hasło:</label>
                 <input type="password" name="password1">
                 <label for="email">Powtórz hasło:</label>
@@ -34,5 +38,14 @@
 </body>
 
 <script src="static/js/global.js"></script>
+<script>
+    const closeFormErrorBtn = document.getElementById("closeFormErrorBtn");
+
+    if (closeFormErrorBtn) {
+        closeFormErrorBtn.addEventListener('click', () => {
+            document.getElementById("formError").style.display = "none";
+        })
+    }
+</script>
 
 </html>
