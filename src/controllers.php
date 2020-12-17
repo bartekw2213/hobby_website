@@ -22,28 +22,46 @@ function show_plecak_view(&$model)
 
 function show_register_or_login_form(&$model)
 {
+    is_user_logged($model);
     determine_what_form_should_view($model);
     return 'rejestracja_lub_login_view';
 }
 
 function register_user(&$model)
 {
-    if (!is_form_correct($model))
-        return 'rejestracja_view';
+    if (!is_register_form_correct($model)) {
+        return show_register_or_login_form($model);
+    }
 
     if (!is_email_free($_POST['email'])) {
         $model['form_error'] = "Podany email jest już zarejestrowany";
-        return 'rejestracja_view';
+        return show_register_or_login_form($model);
     }
 
     if (!is_username_free($_POST['username'])) {
         $model['form_error'] = "Podana nazwa użytkownika jest już zajęta";
-        return 'rejestracja_view';
+        return show_register_or_login_form($model);
     }
 
     save_user_to_db($_POST['email'], $_POST['username'], $_POST['password1']);
     save_user_email_to_session($_POST['email']);
 
+    return 'redirect:/';
+}
+
+function login_user(&$model)
+{
+    if (is_email_free($_POST['email'])) {
+        $model['form_error'] = "Podany email nie jest zarejestrowany";
+        return show_register_or_login_form($model);
+    }
+
+    if (!is_password_correct($_POST['email'], $_POST['password1'])) {
+        $model['form_error'] = "Podane hasło jest nie poprawne";
+        return show_register_or_login_form($model);
+    }
+
+    save_user_email_to_session($_POST['email']);
     return 'redirect:/';
 }
 

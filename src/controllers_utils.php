@@ -13,7 +13,7 @@ function is_user_logged(&$model)
         $model['is_logged'] = false;
 }
 
-function is_form_correct(&$model)
+function is_register_form_correct(&$model)
 {
     if (strlen($_POST['username']) < 5 || strlen($_POST['username']) > 20)
         $model['form_error'] = "Nazwa użytkownika jest nieprawidłowa (musi zawierać od 5 do 20 znaków)";
@@ -32,9 +32,9 @@ function is_form_correct(&$model)
 
 function determine_what_form_should_view(&$model)
 {
-    if (strcmp($_SERVER['REQUEST_URI'], '/rejestracja') === 0)
+    if (strcmp($_SERVER['REQUEST_URI'], '/rejestracja') === 0 || strcmp($_SERVER['REQUEST_URI'], '/rejestruj_uzytkownika') === 0)
         $model['form_type'] = 'registration_form';
 
-    if (strcmp($_SERVER['REQUEST_URI'], '/logowanie') === 0)
+    if (strcmp($_SERVER['REQUEST_URI'], '/logowanie') === 0 || strcmp($_SERVER['REQUEST_URI'], '/loguj_uzytkownika') === 0)
         $model['form_type'] = 'login_form';
 }
