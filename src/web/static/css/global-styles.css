@@ -122,8 +122,9 @@ textarea {
 
 .navigation nav div#userMenu div#userMenuOptions {
   position: absolute;
-  bottom: -120px;
+  bottom: 0;
   right: 0;
+  transform: translateY(100%);
   padding: 10px;
   background-color: var(--light-maroon);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
