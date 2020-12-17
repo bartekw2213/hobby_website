@@ -42,3 +42,10 @@ function is_password_correct($email, $password)
     $hashed_password = $db->users->findOne(["email" => $email])->password;
     return password_verify($password, $hashed_password);
 }
+
+function save_id_to_session($email)
+{
+    $db = get_db();
+    $user_id = (string)($db->users->findOne(["email" => $email])->_id);
+    $_SESSION['user_id'] = $user_id;
+}

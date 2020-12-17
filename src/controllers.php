@@ -22,7 +22,9 @@ function show_plecak_view(&$model)
 
 function show_register_or_login_form(&$model)
 {
-    is_user_logged($model);
+    if (is_user_logged($model))
+        return 'redirect:/';
+
     determine_what_form_should_view($model);
     return 'rejestracja_lub_login_view';
 }
@@ -44,7 +46,7 @@ function register_user(&$model)
     }
 
     save_user_to_db($_POST['email'], $_POST['username'], $_POST['password1']);
-    save_user_email_to_session($_POST['email']);
+    save_id_to_session($_POST['email']);
 
     return 'redirect:/';
 }
@@ -61,12 +63,14 @@ function login_user(&$model)
         return show_register_or_login_form($model);
     }
 
-    save_user_email_to_session($_POST['email']);
+    save_id_to_session($_POST['email']);
     return 'redirect:/';
 }
 
 function logout_user()
 {
-    session_destroy();
+    if (is_user_logged($model))
+        session_destroy();
+
     return 'redirect:/';
 }
