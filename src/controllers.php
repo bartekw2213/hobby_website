@@ -21,11 +21,11 @@ function show_plecak_view(&$model)
     return 'plecak_view';
 }
 
-function show_register_form(&$model)
+function show_register_or_login_form(&$model)
 {
+    determine_what_form_should_view($model);
 
-
-    return 'rejestracja_view';
+    return 'rejestracja_lub_login_view';
 }
 
 function register_user(&$model)

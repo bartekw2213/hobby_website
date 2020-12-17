@@ -22,6 +22,10 @@
                     <p>Rejestracja</p>
                     <img src="static/resources/images/registrationIcon.png" alt="Rejestracja Ikona">
                 </a>
+                <a href="/logowanie">
+                    <p>Logowanie</p>
+                    <img src="static/resources/images/loginIcon.png" alt="Logowanie Ikona">
+                </a>
             </div>
         </div>
     </nav>

@@ -16,3 +16,12 @@ function is_form_correct(&$model)
 
     return true;
 }
+
+function determine_what_form_should_view(&$model)
+{
+    if (strcmp($_SERVER['REQUEST_URI'], '/rejestracja') === 0)
+        $model['form_type'] = 'registration_form';
+
+    if (strcmp($_SERVER['REQUEST_URI'], '/logowanie') === 0)
+        $model['form_type'] = 'login_form';
+}
