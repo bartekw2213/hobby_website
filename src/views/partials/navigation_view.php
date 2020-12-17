@@ -29,6 +29,10 @@
                     </a>
                 <?php endif; ?>
                 <?php if ($is_logged) : ?>
+                    <a href="/formularz_zdjecia">
+                        <p>Dodaj zdjęcie</p>
+                        <img src="static/resources/images/addPhotoIcon.png" alt="Dodaj Zdjęcie Ikona">
+                    </a>
                     <a href="/wyloguj_uzytkownika">
                         <p>Wyloguj</p>
                         <img src="static/resources/images/logoutIcon.png" alt="Wyloguj Ikona">
