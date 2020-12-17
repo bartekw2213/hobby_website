@@ -6,5 +6,6 @@ $routing = [
     '/plecak' => 'show_plecak_view',
     '/rejestracja' => 'show_register_or_login_form',
     '/logowanie' => 'show_register_or_login_form',
-    '/rejestruj_uzytkownika' => 'register_user'
+    '/rejestruj_uzytkownika' => 'register_user',
+    '/wyloguj_uzytkownika' => 'logout_user'
 ];

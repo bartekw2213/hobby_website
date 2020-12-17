@@ -1,5 +1,18 @@
 <?php
 
+function save_user_email_to_session($email)
+{
+    $_SESSION['logged_email'] = $email;
+}
+
+function is_user_logged(&$model)
+{
+    if (isset(($_SESSION['logged_email'])))
+        $model['is_logged'] = true;
+    else
+        $model['is_logged'] = false;
+}
+
 function is_form_correct(&$model)
 {
     if (strlen($_POST['username']) < 5 || strlen($_POST['username']) > 20)
