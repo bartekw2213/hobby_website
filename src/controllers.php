@@ -72,3 +72,9 @@ function logout_user()
     session_destroy();
     return 'redirect:/';
 }
+
+function show_add_photo_view(&$model)
+{
+    is_user_logged($model);
+    return 'dodaj_zdjecie_view';
+}

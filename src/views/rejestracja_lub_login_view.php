@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="static/resources/images/siteLogo.png" />
     <link rel="stylesheet" href="static/css/global-styles.css">
-    <link rel="stylesheet" href="static/css/registration-or-login-form.css">
+    <link rel="stylesheet" href="static/css/form.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Ranchers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
     <title>BlogoStop</title>
@@ -20,7 +20,7 @@
             include '../views/partials/form_error_view.php';
         ?>
 
-        <div class="registration-container">
+        <div class="form-container">
             <?php if (strcmp($form_type, 'registration_form') === 0)
                 echo '<form action="rejestruj_uzytkownika" method="post">';
             else

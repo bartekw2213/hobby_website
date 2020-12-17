@@ -1,14 +1,13 @@
-.registration-container {
+.form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   min-height: 600px;
-  background: url('../resources/images/registrationBg.jpg') center / cover
-    no-repeat;
+  background: url('../resources/images/formBg.jpg') center / cover no-repeat;
 }
 
-.registration-container form {
+.form-container form {
   display: flex;
   flex-direction: column;
   width: 420px;
@@ -21,7 +20,7 @@
     0px 5px rgba(var(--maroon-rgb-shadow), 0.9), 0px 0px 20px rgba(0, 0, 0, 0.9);
 }
 
-.registration-container form h1 {
+.form-container form h1 {
   text-align: center;
   font-family: 'Ranchers', sans-serif;
   font-size: 3rem;
@@ -35,7 +34,7 @@
   margin-bottom: 1rem;
 }
 
-.registration-container form label {
+.form-container form label {
   font-family: 'Ranchers', sans-serif;
   letter-spacing: 1px;
   margin-bottom: 5px;
@@ -45,7 +44,7 @@
     0px 3px rgba(var(--maroon-rgb-shadow), 0.9);
 }
 
-.registration-container form input {
+.form-container form input {
   margin-bottom: 1rem;
   background-color: transparent;
   border: none;
@@ -60,7 +59,7 @@
     0px 2px rgba(var(--maroon-rgb-shadow), 0.9);
 }
 
-.registration-container form input[type='submit'] {
+.form-container form input[type='submit'] {
   background-color: var(--maroon);
   border: none;
   padding: 0.75rem;
