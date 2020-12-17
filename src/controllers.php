@@ -69,8 +69,6 @@ function login_user(&$model)
 
 function logout_user()
 {
-    if (is_user_logged($model))
-        session_destroy();
-
+    session_destroy();
     return 'redirect:/';
 }
