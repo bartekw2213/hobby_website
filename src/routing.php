@@ -9,5 +9,6 @@ $routing = [
     '/rejestruj_uzytkownika' => 'register_user',
     '/loguj_uzytkownika' => 'login_user',
     '/wyloguj_uzytkownika' => 'logout_user',
-    '/formularz_zdjecia' => 'show_add_photo_view'
+    '/formularz_zdjecia' => 'show_add_photo_view',
+    '/dodaj_zdjecie' => 'add_photo'
 ];

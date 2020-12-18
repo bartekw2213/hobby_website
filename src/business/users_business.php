@@ -1,6 +1,6 @@
 <?php
 
-function get_db()
+function get_users_db()
 {
     $mongo = new MongoDB\Client(
         "mongodb://localhost:27017/wai",
@@ -12,40 +12,40 @@ function get_db()
 
     $db = $mongo->wai;
 
-    return $db;
+    return $db->users;
 }
 
 function is_email_free($email)
 {
-    $db = get_db();
-    return empty($db->users->findOne(["email" => $email]));
+    $db = get_users_db();
+    return empty($db->findOne(["email" => $email]));
 }
 
 function is_username_free($username)
 {
-    $db = get_db();
-    return empty($db->users->findOne(["username" => $username]));
+    $db = get_users_db();
+    return empty($db->findOne(["username" => $username]));
 }
 
 function save_user_to_db($email, $username, $password)
 {
-    $db = get_db();
+    $db = get_users_db();
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $db->users->insertOne(["email" => $email, 'username' => $username, 'password' => $hashed_password]);
+    $db->insertOne(["email" => $email, 'username' => $username, 'password' => $hashed_password]);
 }
 
 function is_password_correct($email, $password)
 {
-    $db = get_db();
+    $db = get_users_db();
 
-    $hashed_password = $db->users->findOne(["email" => $email])->password;
+    $hashed_password = $db->findOne(["email" => $email])->password;
     return password_verify($password, $hashed_password);
 }
 
 function save_id_to_session($email)
 {
-    $db = get_db();
-    $user_id = (string)($db->users->findOne(["email" => $email])->_id);
+    $db = get_users_db();
+    $user_id = (string)($db->findOne(["email" => $email])->_id);
     $_SESSION['user_id'] = $user_id;
 }

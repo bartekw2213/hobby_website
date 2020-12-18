@@ -4,9 +4,9 @@ require '../../vendor/autoload.php';
 require_once '../dispatcher.php';
 require_once '../routing.php';
 
+require_once '../controllers/view_controllers.php';
 require_once '../controllers/images_controllers.php';
 require_once '../controllers/users_controllers.php';
-require_once '../controllers/view_controllers.php';
 
 session_start();
 

@@ -36,3 +36,30 @@ function determine_what_form_should_view(&$model)
     if (strcmp($_SERVER['REQUEST_URI'], '/logowanie') === 0 || strcmp($_SERVER['REQUEST_URI'], '/loguj_uzytkownika') === 0)
         $model['form_type'] = 'login_form';
 }
+
+function get_file_mime_type($file)
+{
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $file_name = $file['tmp_name'];
+    return finfo_file($finfo, $file_name);
+}
+
+function is_file_mime_type_allowed($file)
+{
+    $allowed_mime_types = ["image/jpeg", "image/png"];
+    $file_mime_type = get_file_mime_type($file);
+    return in_array($file_mime_type, $allowed_mime_types);
+}
+
+function get_file_extension($file)
+{
+    $file_mime_type = get_file_mime_type($file);
+    switch ($file_mime_type) {
+        case 'image/jpeg':
+            return '.jpg';
+        case 'image/png':
+            return '.png';
+        default:
+            return '';
+    }
+}

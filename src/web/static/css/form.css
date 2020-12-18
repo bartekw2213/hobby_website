@@ -78,7 +78,8 @@
   cursor: pointer;
 }
 
-.form-error-container {
+.form-error-container,
+.success-alert-form-container {
   position: fixed;
   left: 50%;
   top: 30%;
@@ -99,7 +100,8 @@
   position: relative;
 }
 
-.form-error-inner-container #closeFormErrorBtn {
+.form-error-inner-container #closeFormErrorBtn,
+.form-error-inner-container .close-form-error-btn {
   height: 30px;
   width: 30px;
   color: var(--maroon);
@@ -116,4 +118,32 @@
   box-shadow: 1px 1px rgba(0, 0, 0, 0.6), 2px 2px rgba(0, 0, 0, 0.6),
     3px 3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
+}
+
+.photo-form-errors-container {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.photo-form-errors-container .form-error-container {
+  position: static;
+  transform: translateX(0%);
+  margin-bottom: 1rem;
+}
+
+.success-alert-form-container {
+  background-color: #3bb337;
+  display: flex;
+  align-items: center;
+}
+
+.success-alert-form-container h3 {
+  font-size: 1.5rem;
+}
+
+.success-alert-form-container img {
+  max-width: 40px;
+  margin-left: 1rem;
 }
