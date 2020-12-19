@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers_utils.php';
+require_once realpath(dirname(__FILE__) . '/utils/view_controllers_utils.php');
 
 function show_home_view(&$model)
 {

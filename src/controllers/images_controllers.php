@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers_utils.php';
+require_once realpath(dirname(__FILE__) . '/utils/images_controllers_utils.php');
 require_once '../business/images_business.php';
 
 // @TODO change this file path after pushing to production 

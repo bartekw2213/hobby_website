@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers_utils.php';
+require_once realpath(dirname(__FILE__) . '/utils/users_controllers_utils.php');
 require_once '../business/users_business.php';
 
 function register_user(&$model)
