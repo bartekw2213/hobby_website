@@ -63,14 +63,17 @@ function merge_stamp($stamp, &$image)
     imagecopymerge($image, $stamp, imagesx($image) - $sx - $marge_right, imagesy($image) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 60);
 }
 
+function create_image_copy($photo_extension, $path_to_file)
+{
+    if ($photo_extension === ".jpg")
+        return imagecreatefromjpeg($path_to_file);
+    else
+        return imagecreatefrompng($path_to_file);
+}
+
 function create_watermark_image($photo_title, $path_to_file, $photo_extension, $water_mark_text)
 {
-    $water_mark_image = 0;
-
-    if ($photo_extension === ".jpg")
-        $water_mark_image = imagecreatefromjpeg($path_to_file);
-    else
-        $water_mark_image = imagecreatefrompng($path_to_file);
+    $water_mark_image = create_image_copy($photo_extension, $path_to_file);
 
     $stamp = create_stamp($water_mark_text);
     merge_stamp($stamp, $water_mark_image);
@@ -79,4 +82,15 @@ function create_watermark_image($photo_title, $path_to_file, $photo_extension, $
         imagejpeg($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.jpg");
     else
         imagepng($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.png");
+}
+
+function create_miniature_image($photo_title, $path_to_file, $photo_extension)
+{
+    $resized_image = create_image_copy($photo_extension, $path_to_file);
+    $resized_image = imagescale($resized_image, 250, 125);
+
+    if ($photo_extension === ".jpg")
+        imagejpeg($resized_image, "/var/www/dev/src/web/images/" . $photo_title . "_miniature.jpg");
+    else
+        imagepng($resized_image, "/var/www/dev/src/web/images/" . $photo_title . "_miniature.png");
 }

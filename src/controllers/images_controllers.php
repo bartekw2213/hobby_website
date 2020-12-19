@@ -24,9 +24,9 @@ function add_photo(&$model)
         else {
             $model['photo_upload_successful'] = true;
             create_watermark_image($photo_title, $target, $photo_extension, $_POST['water_mark']);
+            create_miniature_image($photo_title, $target, $photo_extension);
         }
     }
-
 
     return show_add_photo_view($model);
 }
