@@ -79,9 +79,9 @@ function create_watermark_image($photo_title, $path_to_file, $photo_extension, $
     merge_stamp($stamp, $water_mark_image);
 
     if ($photo_extension === ".jpg")
-        imagejpeg($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.jpg");
+        imagejpeg($water_mark_image, IMAGE_DIR . $photo_title . "_water_mark.jpg");
     else
-        imagepng($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.png");
+        imagepng($water_mark_image, IMAGE_DIR . $photo_title . "_water_mark.png");
 }
 
 function create_miniature_image($photo_title, $path_to_file, $photo_extension)
@@ -90,7 +90,13 @@ function create_miniature_image($photo_title, $path_to_file, $photo_extension)
     $resized_image = imagescale($resized_image, 250, 125);
 
     if ($photo_extension === ".jpg")
-        imagejpeg($resized_image, "/var/www/dev/src/web/images/" . $photo_title . "_miniature.jpg");
+        imagejpeg($resized_image, IMAGE_DIR . $photo_title . "_miniature.jpg");
     else
-        imagepng($resized_image, "/var/www/dev/src/web/images/" . $photo_title . "_miniature.png");
+        imagepng($resized_image, IMAGE_DIR . $photo_title . "_miniature.png");
+}
+
+function change_author_if_needed(&$author)
+{
+    if (empty($author))
+        $author = 'Nieznany';
 }
