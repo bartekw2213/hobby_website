@@ -81,20 +81,39 @@ function check_photo_form(&$model, $photo_title, $photo)
         array_push($model['photo_form_errors'], "Dodanie znaku wodnego jest obowiązkowe");
 }
 
+function create_stamp($text)
+{
+    $stamp = imagecreatetruecolor(strlen($text) * 25, 80);
+    imagefilledrectangle($stamp, 0, 0, strlen($text) * 40, 80, 0xcc4452);
+    imagettftext($stamp, 32, 0, 10, 50, 0xf9e4ad, "static/resources/fonts/Ranchers-Regular.ttf", $text);
+
+    return $stamp;
+}
+
+function merge_stamp($stamp, &$image)
+{
+    $marge_right = 50;
+    $marge_bottom = 50;
+    $sx = imagesx($stamp);
+    $sy = imagesy($stamp);
+
+    imagecopymerge($image, $stamp, imagesx($image) - $sx - $marge_right, imagesy($image) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 60);
+}
+
 function create_watermark_image($photo_title, $path_to_file, $photo_extension, $water_mark_text)
 {
-    $watermark_image = 0;
+    $water_mark_image = 0;
 
     if ($photo_extension === ".jpg")
-        $watermark_image = imagecreatefromjpeg($path_to_file);
+        $water_mark_image = imagecreatefromjpeg($path_to_file);
     else
-        $watermark_image = imagecreatefrompng($path_to_file);
+        $water_mark_image = imagecreatefrompng($path_to_file);
 
-    $text_color = imagecolorallocate($watermark_image, 0, 0, 0);
-    imagettftext($watermark_image, 64, 0, 100, 100, $text_color, "static/resources/fonts/Ranchers-Regular.ttf", $water_mark_text);
+    $stamp = create_stamp($water_mark_text);
+    merge_stamp($stamp, $water_mark_image);
 
     if ($photo_extension === ".jpg")
-        imagejpeg($watermark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.jpg");
+        imagejpeg($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.jpg");
     else
-        imagepng($watermark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.png");
+        imagepng($water_mark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.png");
 }
