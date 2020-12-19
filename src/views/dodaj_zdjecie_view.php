@@ -41,8 +41,10 @@
                 <input type="file" name="photo">
                 <label for="author">Autor</label>
                 <input type="text" name="author">
-                <label for="title">Tytuł</label>
+                <label for="title">Tytuł *</label>
                 <input type="text" name="title">
+                <label for="water_mark">Znak Wodny *</label>
+                <input type="text" name="water_mark">
                 <input type="submit" value="Prześlij">
             </form>
         </div>

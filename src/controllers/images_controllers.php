@@ -16,20 +16,17 @@ function add_photo(&$model)
     $tmp_path = $photo['tmp_name'];
 
     $model['photo_form_errors'] = [];
+    check_photo_form($model, $photo_title, $photo);
 
-    if (!is_photo_title_free($photo_title))
-        array_push($model['photo_form_errors'], "Istnieje obraz o podanym tytule");
+    if (count($model['photo_form_errors']) < 1) {
+        if (!move_uploaded_file($tmp_path, $target))
+            array_push($model['photo_form_errors'], "Nie udało się przesłać pliku");
+        else {
+            $model['photo_upload_successful'] = true;
+            create_watermark_image($photo_title, $target, $photo_extension, $_POST['water_mark']);
+        }
+    }
 
-    if ($photo['size'] > MAX_SIZE)
-        array_push($model['photo_form_errors'], "Plik nie może być większy niż 1MB");
-
-    if (!is_file_mime_type_allowed($photo))
-        array_push($model['photo_form_errors'], "Dozwolone są tylko pliki formatu JPG lub PNG");
-
-    if (!move_uploaded_file($tmp_path, $target))
-        array_push($model['photo_form_errors'], "Nie udało się przesłać pliku");
-    else
-        $model['photo_upload_successful'] = true;
 
     return show_add_photo_view($model);
 }

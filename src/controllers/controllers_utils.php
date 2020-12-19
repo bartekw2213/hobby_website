@@ -63,3 +63,38 @@ function get_file_extension($file)
             return '';
     }
 }
+
+function check_photo_form(&$model, $photo_title, $photo)
+{
+    if (empty($photo_title))
+        array_push($model['photo_form_errors'], "Musisz nadać zdjęciu tytuł");
+    else if (!is_photo_title_free($photo_title))
+        array_push($model['photo_form_errors'], "Istnieje obraz o podanym tytule");
+
+    if ($photo['size'] > MAX_SIZE)
+        array_push($model['photo_form_errors'], "Plik nie może być większy niż 1MB");
+
+    if (!is_file_mime_type_allowed($photo))
+        array_push($model['photo_form_errors'], "Dozwolone są tylko pliki formatu JPG lub PNG");
+
+    if (empty($_POST['water_mark']))
+        array_push($model['photo_form_errors'], "Dodanie znaku wodnego jest obowiązkowe");
+}
+
+function create_watermark_image($photo_title, $path_to_file, $photo_extension, $water_mark_text)
+{
+    $watermark_image = 0;
+
+    if ($photo_extension === ".jpg")
+        $watermark_image = imagecreatefromjpeg($path_to_file);
+    else
+        $watermark_image = imagecreatefrompng($path_to_file);
+
+    $text_color = imagecolorallocate($watermark_image, 0, 0, 0);
+    imagettftext($watermark_image, 64, 0, 100, 100, $text_color, "static/resources/fonts/Ranchers-Regular.ttf", $water_mark_text);
+
+    if ($photo_extension === ".jpg")
+        imagejpeg($watermark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.jpg");
+    else
+        imagepng($watermark_image, "/var/www/dev/src/web/images/" . $photo_title . "_water_mark.png");
+}
