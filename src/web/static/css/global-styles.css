@@ -346,6 +346,14 @@ textarea {
 }
 
 @media (max-width: 810px) {
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation nav {
+    justify-content: center;
+  }
+
   .navigation .page-title h1 {
     font-size: 1.2rem;
   }
@@ -398,12 +406,8 @@ textarea {
 }
 
 @media (max-width: 450px) {
-  .navigation {
-    flex-direction: column;
-  }
-
   .navigation nav {
-    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .space {

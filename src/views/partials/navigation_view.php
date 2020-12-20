@@ -4,6 +4,11 @@
         <img alt="Logo Strony" class="page-logo" src="static/resources/images/siteLogo.png">
     </a>
     <nav id="navigationNav">
+        <a href="/galeria">
+            <p>Galeria</p>
+            <img src="static/resources/images/navGallery.png" alt="Galeria Ikona">
+            <div class="nav-divider"></div>
+        </a>
         <a href="/kierunki">
             <p>Kierunki</p>
             <img src="static/resources/images/navDestinations.png" alt="Kierunki Ikona">
