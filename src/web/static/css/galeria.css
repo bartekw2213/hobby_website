@@ -18,8 +18,16 @@
     5px 5px rgba(0, 0, 0, 0.7);
 }
 
-.gallery-images-container {
+.gallery-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 2rem;
+}
+
+.gallery-images-container {
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -35,9 +43,22 @@
     0px 3px rgba(var(--maroon-rgb-shadow), 0.9), 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
+.gallery-images-container .bottom {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gallery-images-container .bottom-col {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
 .gallery-images-container .bottom-row {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: 'Ranchers', sans-serif;
   color: var(--light-beige);
   letter-spacing: 1px;
@@ -57,7 +78,8 @@
   margin-top: 2rem;
 }
 
-.gallery-buttons a {
+.gallery-buttons a,
+.gallery-form .save-photos-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,4 +97,19 @@
   box-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
     0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
     0px 3px rgba(var(--maroon-rgb-shadow), 0.9), 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-form .save-photos-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
 }

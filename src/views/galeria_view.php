@@ -22,9 +22,9 @@
     </div>
 
     <div class="container no-shadow">
-        <?php echo "<form action=\"zachowaj_zdjecia_sesji?strona=$current_page\" method=\"POST\">" ?>
+        <?php echo "<form action=\"zachowaj_zdjecia_sesji?strona=$current_page\" method=\"POST\" class=\"gallery-form\">" ?>
 
-        <input type="submit" value="Zachowaj wybrane" />
+        <input type="submit" value="Zachowaj wybrane" class="save-photos-btn" />
 
         <div class="gallery-images-container">
             <?php foreach ($images_info as $image) : ?>
@@ -35,20 +35,24 @@
                         <?php echo "</a>" ?>
                     </div>
                     <div class="bottom">
-                        <div class="bottom-row">
-                            <span class="gallery-property-header">Tytuł: </span><span><?php echo $image->title ?></span>
+                        <div class="bottom-col">
+                            <div class="bottom-row">
+                                <span class="gallery-property-header">Tytuł: </span><span><?php echo $image->title ?></span>
+                            </div>
+                            <div class="bottom-row">
+                                <span class="gallery-property-header">Autor: </span><span><?php echo $image->author ?></span>
+                            </div>
                         </div>
-                        <div class="bottom-row">
-                            <span class="gallery-property-header">Autor: </span><span><?php echo $image->author ?></span>
-                        </div>
-                        <div class="bottom-row">
-                            <?php
-                            echo "<input type=\"hidden\" name=\"photos_on_page_ids[]\" value=\"$image->_id\">";
-                            if (isset($_SESSION['session_photos_ids']) && in_array($image->_id, $_SESSION['session_photos_ids']))
-                                echo "<input checked=\"true\" type=\"checkbox\" name=\"session_photos_ids[]\" value=\"$image->_id\">";
-                            else
-                                echo "<input type=\"checkbox\" name=\"session_photos_ids[]\" value=\"$image->_id\">";
-                            ?>
+                        <div class="bottom-col">
+                            <div class="bottom-row checkbox-container">
+                                <?php
+                                echo "<input type=\"hidden\" name=\"photos_on_page_ids[]\" value=\"$image->_id\">";
+                                if (isset($_SESSION['session_photos_ids']) && in_array($image->_id, $_SESSION['session_photos_ids']))
+                                    echo "<input checked=\"true\" type=\"checkbox\" name=\"session_photos_ids[]\" value=\"$image->_id\">";
+                                else
+                                    echo "<input type=\"checkbox\" name=\"session_photos_ids[]\" value=\"$image->_id\">";
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>
