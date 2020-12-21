@@ -20,12 +20,13 @@
 
 .gallery-images-container {
   margin-top: 2rem;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, 280px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gallery-images-container .gallery-card {
+  margin: 10px;
   border-radius: 5px;
   background-color: var(--light-maroon);
   padding: 10px;
