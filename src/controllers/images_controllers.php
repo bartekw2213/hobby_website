@@ -5,6 +5,7 @@ const IMAGE_DIR = "images/";
 const MAX_SIZE = 1000000;
 
 require_once realpath(dirname(__FILE__) . '/utils/images_controllers_utils.php');
+require_once realpath(dirname(__FILE__) . '/utils/view_controllers_utils.php');
 require_once '../business/images_business.php';
 
 function add_photo(&$model)
@@ -32,4 +33,35 @@ function add_photo(&$model)
     }
 
     return show_add_photo_view($model);
+}
+
+function save_new_photos_to_session(&$session_photos_array, &$new_selected_photos)
+{
+    foreach ($new_selected_photos as $id)
+        if (!in_array($id, $session_photos_array))
+            array_push($session_photos_array, $id);
+}
+
+function delete_unchecked_photos_from_session(&$session_photos_array, &$selected_photos, $photos_on_current_page)
+{
+    foreach ($session_photos_array as $i => $id_val)
+        if (!in_array($id_val, $selected_photos) && in_array($id_val, $photos_on_current_page)) {
+            unset($session_photos_array[$i]);
+        }
+}
+
+function save_photos_to_session(&$model)
+{
+    $session_photos_ids_string = 'session_photos_ids';
+
+    if (!isset($_SESSION[$session_photos_ids_string]))
+        $_SESSION[$session_photos_ids_string] = [];
+
+    if (isset($_POST[$session_photos_ids_string])) {
+        save_new_photos_to_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string]);
+        delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string], $_POST['photos_on_page_ids']);
+    } else
+        $_SESSION[$session_photos_ids_string] = [];
+
+    return show_galeria_view($model);
 }
