@@ -4,7 +4,7 @@
         <img alt="Logo Strony" class="page-logo" src="static/resources/images/siteLogo.png">
     </a>
     <nav id="navigationNav">
-        <a href="/galeria">
+        <a href="/galeria?strona=1">
             <p>Galeria</p>
             <img src="static/resources/images/navGallery.png" alt="Galeria Ikona">
             <div class="nav-divider"></div>

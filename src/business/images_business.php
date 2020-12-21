@@ -1,5 +1,7 @@
 <?php
 
+const IMAGES_PER_PAGE_LIMIT = 5;
+
 function get_images_collection()
 {
     $mongo = new MongoDB\Client(
@@ -35,4 +37,23 @@ function save_img_info_to_db($photo_title, $author, $photo_extension)
         'water_mark_path' => $water_mark_path,
         'miniature_path' => $miniature_path
     ]);
+}
+
+function fetch_images_info($pageNum)
+{
+    $skip = IMAGES_PER_PAGE_LIMIT * ($pageNum - 1);
+
+    $images = get_images_collection()->find([], ['skip' => $skip, 'limit' => IMAGES_PER_PAGE_LIMIT])->toArray();
+    return $images;
+}
+
+function check_if_next_page_exists($current_page_num)
+{
+    $skip = IMAGES_PER_PAGE_LIMIT * $current_page_num;
+    $image = get_images_collection()->findOne([], ['skip' => $skip, 'limit' => IMAGES_PER_PAGE_LIMIT]);
+
+    if ($image)
+        return true;
+
+    return false;
 }

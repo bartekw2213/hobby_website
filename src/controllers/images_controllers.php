@@ -1,7 +1,7 @@
 <?php
 
 // @TODO change this file path after pushing to production 
-const IMAGE_DIR = "/var/www/dev/src/web/images/";
+const IMAGE_DIR = "images/";
 const MAX_SIZE = 1000000;
 
 require_once realpath(dirname(__FILE__) . '/utils/images_controllers_utils.php');

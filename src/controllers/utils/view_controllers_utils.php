@@ -10,3 +10,10 @@ function is_user_logged(&$model)
         return false;
     }
 }
+
+function get_images_page_num($url)
+{
+    $url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
+    return $params['strona'];
+}

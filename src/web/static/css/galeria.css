@@ -1,0 +1,77 @@
+.gallery-introduction {
+  height: 300px;
+  background: var(--carousel-overlay),
+    url(../resources/images/gallery5.jpg) center 40% / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.gallery-introduction h1 {
+  font-family: 'Ranchers', sans-serif;
+  font-size: 5rem;
+  color: var(--light-maroon);
+  margin-bottom: 2rem;
+  letter-spacing: 4px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7), 2px 2px rgba(0, 0, 0, 0.7),
+    3px 3px rgba(0, 0, 0, 0.7), 4px 4px rgba(0, 0, 0, 0.7),
+    5px 5px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-images-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, 280px);
+}
+
+.gallery-images-container .gallery-card {
+  border-radius: 5px;
+  background-color: var(--light-maroon);
+  padding: 10px;
+  box-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 3px rgba(var(--maroon-rgb-shadow), 0.9), 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-images-container .bottom-row {
+  display: flex;
+  justify-content: center;
+  font-family: 'Ranchers', sans-serif;
+  color: var(--light-beige);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7), 2px 2px rgba(0, 0, 0, 0.7),
+    3px 3px rgba(0, 0, 0, 0.7);
+}
+
+.gallery-images-container .gallery-property-header {
+  margin-left: 10px;
+  margin-right: 5px;
+  color: var(--logo-red);
+}
+
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.gallery-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bolder;
+  font-family: 'Ranchers', sans-serif;
+  color: #f5f5f5;
+  background-color: var(--logo-red);
+  margin-right: 1rem;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.5), 0px 2px rgba(0, 0, 0, 0.5),
+    0px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 2px rgba(var(--maroon-rgb-shadow), 0.9),
+    0px 3px rgba(var(--maroon-rgb-shadow), 0.9), 0px 7px 10px rgba(0, 0, 0, 0.5);
+}

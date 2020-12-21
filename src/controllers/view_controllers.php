@@ -1,11 +1,22 @@
 <?php
 
+require_once '../business/images_business.php';
 require_once realpath(dirname(__FILE__) . '/utils/view_controllers_utils.php');
 
 function show_home_view(&$model)
 {
     is_user_logged($model);
     return 'home_view';
+}
+
+function show_galeria_view(&$model)
+{
+    $pageNum = get_images_page_num("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+    $model['images_info'] = fetch_images_info($pageNum);
+    $model['current_page'] = $pageNum;
+    $model['next_page_exists'] = check_if_next_page_exists($pageNum);
+    is_user_logged($model);
+    return 'galeria_view';
 }
 
 function show_kierunki_view(&$model)
