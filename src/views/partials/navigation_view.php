@@ -27,6 +27,10 @@
                     <p>Dodaj zdjęcie</p>
                     <img src="static/resources/images/addPhotoIcon.png" alt="Dodaj Zdjęcie Ikona">
                 </a>
+                <a href="/koszyk_zdjec">
+                    <p>Koszyk zdjęć</p>
+                    <img src="static/resources/images/shoppingCartIcon.png" alt="Koszyk Zdjęć Ikona">
+                </a>
                 <?php if (!$is_logged) : ?>
                     <a href="/rejestracja">
                         <p>Rejestracja</p>
