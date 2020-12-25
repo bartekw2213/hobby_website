@@ -42,7 +42,7 @@ function save_new_photos_to_session(&$session_photos_array, &$new_selected_photo
             array_push($session_photos_array, $id);
 }
 
-function delete_unchecked_photos_from_session(&$session_photos_array, &$selected_photos, $photos_on_current_page)
+function delete_unchecked_photos_from_session(&$session_photos_array, $selected_photos, $photos_on_current_page)
 {
     foreach ($session_photos_array as $i => $id_val)
         if (!in_array($id_val, $selected_photos) && in_array($id_val, $photos_on_current_page)) {
@@ -61,7 +61,8 @@ function save_photos_to_session(&$model)
         save_new_photos_to_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string]);
         delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string], $_POST['photos_on_page_ids']);
     } else
-        $_SESSION[$session_photos_ids_string] = [];
+        delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], [], $_POST['photos_on_page_ids']);
+
 
     return show_galeria_view($model);
 }
