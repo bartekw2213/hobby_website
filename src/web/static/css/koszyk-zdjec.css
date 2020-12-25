@@ -1,13 +1,13 @@
-.gallery-introduction {
+.photos-cart-introduction {
   height: 300px;
   background: var(--carousel-overlay),
-    url(../resources/images/gallery5.jpg) center 40% / cover no-repeat;
+    url(../resources/images/gallery6.jpg) center 30% / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
 
-.gallery-introduction h1 {
+.photos-cart-introduction h1 {
   font-family: 'Ranchers', sans-serif;
   font-size: 5rem;
   color: var(--light-maroon);
@@ -18,7 +18,7 @@
     5px 5px rgba(0, 0, 0, 0.7);
 }
 
-.gallery-form {
+.photos-cart-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,14 +26,8 @@
   margin-top: 2rem;
 }
 
-.gallery-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.gallery-buttons a,
-.gallery-form .save-photos-btn {
+.photos-cart-buttons a,
+.photos-cart-form .save-photos-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +47,7 @@
     0px 3px rgba(var(--maroon-rgb-shadow), 0.9), 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
 
-.gallery-form .save-photos-btn {
+.photos-cart-form .save-photos-btn {
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;

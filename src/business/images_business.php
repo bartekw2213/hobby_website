@@ -1,5 +1,7 @@
 <?php
 
+use MongoDB\BSON\ObjectID;
+
 const IMAGES_PER_PAGE_LIMIT = 5;
 
 function get_images_collection()
@@ -56,4 +58,12 @@ function check_if_next_page_exists($current_page_num)
         return true;
 
     return false;
+}
+
+function fetch_images_info_by_ids($idsArray)
+{
+    foreach ($idsArray as $i => $id)
+        $idsArray[$i] = new ObjectID($id);
+
+    return get_images_collection()->find(["_id" => ['$in' => array_values($idsArray)]])->toArray();
 }

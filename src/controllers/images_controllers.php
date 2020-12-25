@@ -66,3 +66,19 @@ function save_photos_to_session(&$model)
 
     return show_galeria_view($model);
 }
+
+function delete_photos_from_session(&$model)
+{
+    $session_photos_ids_string = 'session_photos_ids';
+
+    if (!isset($_SESSION[$session_photos_ids_string]))
+        $_SESSION[$session_photos_ids_string] = [];
+
+    if (isset($_POST[$session_photos_ids_string])) {
+        save_new_photos_to_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string]);
+        delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], $_POST[$session_photos_ids_string], $_POST['photos_on_page_ids']);
+    } else
+        delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], [], $_POST['photos_on_page_ids']);
+
+    return show_photos_cart_view($model);
+}
