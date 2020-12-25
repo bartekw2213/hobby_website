@@ -129,6 +129,7 @@ textarea {
   background-color: var(--light-maroon);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   transition: opacity 2s ease-in-out;
+  width: 180px;
 }
 
 .navigation nav div#userMenu div#userMenuOptions.visible {
