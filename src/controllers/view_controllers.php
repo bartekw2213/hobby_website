@@ -57,7 +57,8 @@ function show_add_photo_view(&$model)
 
 function show_photos_cart_view(&$model)
 {
-    $model['images_info'] = fetch_images_info_by_ids($_SESSION['session_photos_ids']);
+    if (isset($_SESSION['session_photos_ids']))
+        $model['images_info'] = fetch_images_info_by_ids($_SESSION['session_photos_ids']);
     is_user_logged($model);
     return 'koszyk_zdjec_view';
 }
