@@ -50,16 +50,19 @@
                 <input type="text" name="title">
                 <label for="water_mark">Znak Wodny *</label>
                 <input type="text" name="water_mark">
-                <div class="private-inputs">
-                    <div class="private-input-group">
-                        <span>Prywatne</span>
-                        <input type="radio" name="private" value="true">
+                <?php if (isset($user_username)) : ?>
+                    <div class="private-inputs">
+                        <div class="private-input-group">
+                            <span>Prywatne</span>
+                            <input type="radio" name="is_private" value="true">
+                        </div>
+                        <div class="private-input-group">
+                            <span>Publiczne</span>
+                            <input type="radio" name="is_private" value="false" checked>
+                        </div>
                     </div>
-                    <div class="private-input-group">
-                        <span>Publiczne</span>
-                        <input type="radio" name="private" value="false" checked>
-                    </div>
-                </div>
+                    <?php echo "<input type=\"hidden\" name=\"user_id\" value=\"$user_id\">" ?>
+                <?php endif ?>
                 <input type="submit" value="Prześlij">
             </form>
         </div>

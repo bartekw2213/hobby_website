@@ -25,8 +25,13 @@ function is_photo_title_free($title)
     return empty($images->findOne(["title" => $title]));
 }
 
-function save_img_info_to_db($photo_title, $author, $photo_extension)
+function save_img_info_to_db($photo_title, $author, $photo_extension, $user_id, $is_private)
 {
+    if (!$user_id) {
+        $user_id = 0;
+        $is_private = 'false';
+    }
+
     $images = get_images_collection();
     $original_path = IMAGE_DIR . $photo_title . $photo_extension;
     $water_mark_path = IMAGE_DIR . $photo_title . "_water_mark" . $photo_extension;
@@ -37,7 +42,9 @@ function save_img_info_to_db($photo_title, $author, $photo_extension)
         'author' => $author,
         'original_path' => $original_path,
         'water_mark_path' => $water_mark_path,
-        'miniature_path' => $miniature_path
+        'miniature_path' => $miniature_path,
+        'sent_by_id' => $user_id,
+        'is_private' => $is_private
     ]);
 }
 

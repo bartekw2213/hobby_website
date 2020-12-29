@@ -28,7 +28,7 @@ function add_photo(&$model)
             $model['photo_upload_successful'] = true;
             create_watermark_image($photo_title, $target, $photo_extension, $_POST['water_mark']);
             create_miniature_image($photo_title, $target, $photo_extension);
-            save_img_info_to_db($photo_title, $author, $photo_extension);
+            save_img_info_to_db($photo_title, $author, $photo_extension, $_POST['user_id'], $_POST['is_private']);
         }
     }
 

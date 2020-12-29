@@ -43,8 +43,11 @@ function show_register_or_login_form(&$model)
 
 function show_add_photo_view(&$model)
 {
-    if (is_user_logged($model))
+    if (is_user_logged($model)) {
         $model['user_username'] = get_user_by_id($_SESSION['user_id'])->username;
+        $model['user_id'] = $_SESSION['user_id'];
+    }
+
     return 'dodaj_zdjecie_view';
 }
 
