@@ -1,5 +1,7 @@
 <?php
 
+use MongoDB\BSON\ObjectID;
+
 function get_users_collection()
 {
     $mongo = new MongoDB\Client(
@@ -48,4 +50,9 @@ function save_id_to_session($email)
     $users = get_users_collection();
     $user_id = (string)($users->findOne(["email" => $email])->_id);
     $_SESSION['user_id'] = $user_id;
+}
+
+function get_user_by_id($id)
+{
+    return get_users_collection()->findOne(['_id' => new ObjectID($id)], ["projection" => ['password' => 0]]);
 }

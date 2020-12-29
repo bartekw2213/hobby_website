@@ -1,6 +1,7 @@
 <?php
 
 require_once '../business/images_business.php';
+require_once '../business/users_business.php';
 require_once realpath(dirname(__FILE__) . '/utils/view_controllers_utils.php');
 
 function show_home_view(&$model)
@@ -42,7 +43,8 @@ function show_register_or_login_form(&$model)
 
 function show_add_photo_view(&$model)
 {
-    is_user_logged($model);
+    if (is_user_logged($model))
+        $model['user_username'] = get_user_by_id($_SESSION['user_id'])->username;
     return 'dodaj_zdjecie_view';
 }
 

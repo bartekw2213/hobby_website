@@ -2,7 +2,7 @@
 
 use MongoDB\BSON\ObjectID;
 
-const IMAGES_PER_PAGE_LIMIT = 5;
+const IMAGES_PER_PAGE_LIMIT = 8;
 
 function get_images_collection()
 {

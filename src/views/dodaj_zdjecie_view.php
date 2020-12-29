@@ -40,7 +40,12 @@
                 <label for="photo">Wybierz zdjęcie</label>
                 <input type="file" name="photo">
                 <label for="author">Autor</label>
-                <input type="text" name="author">
+                <?php if (isset($user_username)) : ?>
+                    <?php echo "<input type=\"text\" name=\"author\" value=\"$user_username\">" ?>
+                <?php endif ?>
+                <?php if (!isset($user_username)) : ?>
+                    <?php echo "<input type=\"text\" name=\"author\" value=\"Nieznany\">" ?>
+                <?php endif ?>
                 <label for="title">Tytuł *</label>
                 <input type="text" name="title">
                 <label for="water_mark">Znak Wodny *</label>
