@@ -48,11 +48,20 @@ function save_img_info_to_db($photo_title, $author, $photo_extension, $user_id, 
     ]);
 }
 
-function fetch_images_info($pageNum)
+function fetch_images_info($pageNum, $user_id)
 {
     $skip = IMAGES_PER_PAGE_LIMIT * ($pageNum - 1);
 
-    $images = get_images_collection()->find([], ['skip' => $skip, 'limit' => IMAGES_PER_PAGE_LIMIT])->toArray();
+    $images = get_images_collection()->find(
+        [
+            '$or' => [
+                ["is_private" => "false"],
+                ["sent_by_id" => $user_id]
+            ]
+        ],
+        ['skip' => $skip, 'limit' => IMAGES_PER_PAGE_LIMIT]
+    )->toArray();
+
     return $images;
 }
 

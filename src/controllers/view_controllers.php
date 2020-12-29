@@ -12,8 +12,12 @@ function show_home_view(&$model)
 
 function show_galeria_view(&$model)
 {
+    $user_id = 0;
+    if (isset($_SESSION['user_id']))
+        $user_id = $_SESSION['user_id'];
+
     $pageNum = get_images_page_num("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-    $model['images_info'] = fetch_images_info($pageNum);
+    $model['images_info'] = fetch_images_info($pageNum, $user_id);
     $model['current_page'] = $pageNum;
     $model['next_page_exists'] = check_if_next_page_exists($pageNum);
     is_user_logged($model);
