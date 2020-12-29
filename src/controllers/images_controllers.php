@@ -52,6 +52,14 @@ function delete_unchecked_photos_from_session(&$session_photos_array, $selected_
 
 function save_photos_to_session(&$model)
 {
+    if (!isset($_POST['change_photo_privacy']))
+        $_POST['change_photo_privacy'] = [];
+
+    if (!isset($_POST['private_photos_on_page']))
+        $_POST['private_photos_on_page'] = [];
+
+    handle_privacy_of_photos($_POST['change_photo_privacy'], $_POST['private_photos_on_page']);
+
     $session_photos_ids_string = 'session_photos_ids';
 
     if (!isset($_SESSION[$session_photos_ids_string]))
@@ -81,4 +89,29 @@ function delete_photos_from_session(&$model)
         delete_unchecked_photos_from_session($_SESSION[$session_photos_ids_string], [], $_POST['photos_on_page_ids']);
 
     return show_photos_cart_view($model);
+}
+
+// Functions that handles privacy of photos
+
+function find_public_photos($ids_of_private_photos, $ids_of_all_users_photos_on_page)
+{
+    $public_photos = [];
+
+    foreach ($ids_of_all_users_photos_on_page as $photo_id)
+        if (!in_array($photo_id, $ids_of_private_photos))
+            array_push($public_photos, $photo_id);
+
+    return $public_photos;
+}
+
+function handle_privacy_of_photos($ids_of_private_photos, $ids_of_all_users_photos_on_page)
+{
+    if (!$ids_of_private_photos)
+        $ids_of_private_photos = [];
+
+    if (!$ids_of_all_users_photos_on_page)
+        return;
+
+    make_this_photos_private($ids_of_private_photos);
+    make_this_photos_public(find_public_photos($ids_of_private_photos, $ids_of_all_users_photos_on_page));
 }

@@ -83,3 +83,25 @@ function fetch_images_info_by_ids($idsArray)
 
     return get_images_collection()->find(["_id" => ['$in' => array_values($idsArray)]])->toArray();
 }
+
+function make_this_photos_private($photos_ids)
+{
+    if (!$photos_ids || count($photos_ids) < 1)
+        return;
+
+    foreach ($photos_ids as $i => $id)
+        $photos_ids[$i] = new ObjectID($id);
+
+    get_images_collection()->updateMany(["_id" => ['$in' => array_values($photos_ids)]], ['$set' => ["is_private" => "true"]]);
+}
+
+function make_this_photos_public($photos_ids)
+{
+    if (!$photos_ids || count($photos_ids) < 1)
+        return;
+
+    foreach ($photos_ids as $i => $id)
+        $photos_ids[$i] = new ObjectID($id);
+
+    get_images_collection()->updateMany(["_id" => ['$in' => array_values($photos_ids)]], ['$set' => ["is_private" => "false"]]);
+}

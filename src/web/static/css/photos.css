@@ -6,6 +6,7 @@
 }
 
 .gallery-images-container .gallery-card {
+  position: relative;
   margin: 10px;
   border-radius: 5px;
   background-color: var(--light-maroon);
@@ -48,4 +49,31 @@
   cursor: pointer;
   height: 30px;
   width: 30px;
+}
+
+/* Styling the private image form */
+.private-photo-input-container {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.private-photo-input-container input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.private-photo-input-container input::after {
+  content: '';
+  background: url('../resources/images/unlockedLock.png');
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -25px;
+}
+
+.private-photo-input-container input:checked::after {
+  background: url('../resources/images/lockedLock.png');
 }
