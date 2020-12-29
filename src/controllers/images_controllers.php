@@ -21,6 +21,12 @@ function add_photo(&$model)
     check_photo_form($model, $photo_title, $photo);
     change_author_if_needed($author);
 
+    if (!isset($_POST['user_id']))
+        $_POST['user_id'] = 0;
+
+    if (!isset($_POST['is_private']))
+        $_POST['is_private'] = "false";
+
     if (count($model['photo_form_errors']) < 1) {
         if (!move_uploaded_file($tmp_path, $target))
             array_push($model['photo_form_errors'], "Nie udało się przesłać pliku");
