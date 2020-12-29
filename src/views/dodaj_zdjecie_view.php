@@ -50,6 +50,16 @@
                 <input type="text" name="title">
                 <label for="water_mark">Znak Wodny *</label>
                 <input type="text" name="water_mark">
+                <div class="private-inputs">
+                    <div class="private-input-group">
+                        <span>Prywatne</span>
+                        <input type="radio" name="private" value="true">
+                    </div>
+                    <div class="private-input-group">
+                        <span>Publiczne</span>
+                        <input type="radio" name="private" value="false" checked>
+                    </div>
+                </div>
                 <input type="submit" value="Prześlij">
             </form>
         </div>
